@@ -3,21 +3,23 @@
 Getting Started
 ----------------
 First download and install the following:
-...Docker
-...Flask
-...Open-FAAS
-
+```
+Docker
+Flask
+Open-FAAS
+```
 
 PyCoverage FAAS 
 ----------------
 To run open a new terminal window and cd into the PyCoverage FAAS folder
+
 Run the following commands:
 ```
   sudo faas build
   faas deploy
 ```
 
-Now the service is running. You can verify by running the command - docker ps
+Now the service is running. You can verify by running the command **- docker ps**
 Additionally one can run the following command to verify the coverage tool is running
 ```
   curl -F 'files=@TEST.zip' http://172.17.0.1:8080/function/piedpiper-pycoverage-function
