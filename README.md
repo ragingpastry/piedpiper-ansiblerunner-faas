@@ -19,8 +19,8 @@ Run the following commands:
   faas deploy
 ```
 
-Now the service is running. You can verify by running the command **- docker ps**
-Additionally one can run the following command to verify the coverage tool is running
+Now the service is running. You can verify by running the command **- docker ps**.
+Additionally to verify the coverage tool is running, one can run the following command:
 ```
   curl -F 'files=@TEST.zip' http://172.17.0.1:8080/function/piedpiper-pycoverage-function
 ```
