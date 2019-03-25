@@ -31,18 +31,15 @@ def run_test_coverage(directory):
     :return: str of results
     """
     buffer = ''
-    for (r, d, f) in os.walk(os.path.abspath(directory)):
-        if len(d) == 1:
+    for (_root, _dir, _) in os.walk(os.path.abspath(directory)):
+        if len(_dir) == 1:
+            # Get the folder name. There should only be one.
+            top_dir = os.path.join(_root, _dir[0])
             # Step into the top level directory
-            top_dir = os.path.join(r, d[0])
             os.chdir(top_dir)
-            # Run pytest on the directory
+            # Run pytest on the directory and return stdout and stderr
             sp = subprocess.run('py.test', stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            # return the output of the runner
+            # return the std output of the runner.
             return sp.stdout.decode("utf-8")
-            # buffer += f'FULL {top_dir}\n'
-            # buffer += f'ROOT {r}\n'
-            # buffer += f'DIRS {d}\n'
-            # buffer += f'FILE {r}\n'
         buffer += 'Multiple directories contained in zip file'
     return buffer
