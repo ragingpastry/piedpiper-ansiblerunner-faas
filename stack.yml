@@ -1,8 +1,17 @@
 provider:
   name: faas
   gateway: http://127.0.0.1:8080
+    
 functions:
-  piedpiper-pycoverage-function:
+  piedpiper-ansiblerunner-function:
     lang: python3-flask
-    handler: ./piedpiper-pycoverage-function
-    image: piedpiper-pycoverage-function:latest
+    handler: ./piedpiper-ansible-runner-function
+    image: piedpiper-ansible-runner-function:latest
+    labels:
+      com.openfaas.scale.zero: true
+    environment:
+      read_timeout: 600s
+      write_timeout: 600s
+      exec_timeout: 600s
+      write_debug: True
+      read_debug: True
