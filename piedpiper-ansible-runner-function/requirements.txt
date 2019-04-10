@@ -1,0 +1,5 @@
+git+git://github.com/ragingpastry/ansible-runner.git@fix-extra-vars
+ansible
+PyYAML
+openshift
+gunicorn
